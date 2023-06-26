@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+  <title>Reduce</title>
+</head>
+<body>
+    <div>
+   <h1>Reduce</h1>
+  <label for="valoresInput">Digite os números separados por vírgula:</label>
+  <input type="text" id="valoresInput">
+  <button onclick="processarValores()">Adicionar</button>
+
+  <p id="resultado"></p>
+
+  <script>
+    function processarValores() {
+      const valoresInput = document.getElementById("valoresInput");
+      const resultadoElement = document.getElementById("resultado");
+
+      const valores = valoresInput.value.split(",").map(valor => parseInt(valor.trim()));
+      
+      const soma = valores.reduce(function(acumulador, valor) {
+        return acumulador + valor;
+      }, 0);
+      
+      resultadoElement.textContent = "Soma: " + soma;
+
+      valoresInput.value = "";
+    }
+  </script>
+</body>
+</html>
